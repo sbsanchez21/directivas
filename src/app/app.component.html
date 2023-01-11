@@ -1,0 +1,55 @@
+<h2>Uso de *ngIf </h2>
+<p>La el valor de identidad_secreta es: <b>{{revelar_identidad}}</b></p>
+
+<p>entonces Ironman es 
+  <span *ngIf="revelar_identidad">
+    <strong>Revelar es true entonces mostrar variable    </strong>
+    
+  </span>
+</p>
+
+<!-- if -->
+<div *ngIf="hoyLlueve">
+  Llevar {{proteccionLluvia}}
+</div>
+
+<!-- switch -->
+<div [ngSwitch]="nroMes">
+  <div *ngSwitchCase="1">
+    Enero
+  </div>
+  <div *ngSwitchCase="2">
+    Febrero
+  </div>
+  <div *ngSwitchCase="3">
+    Marzo
+  </div>
+
+</div>
+
+<!-- for -->
+<li *ngFor="let suel of sueldos">
+  El sueldo es {{suel}} 
+</li>
+
+<div *ngIf="revelar_identidad;then no_secreto else secreto"></div>
+<ng-template #secreto><p>¿Quien es IronMan?...</p></ng-template>
+<ng-template #no_secreto><p>{{ironman}}</p></ng-template>
+
+<h2>Uso de *ngFor con *ngSwitch</h2>
+<p>Las armaduras usadas por IronMan son:</p>
+<ul [ngSwitch]="usar">
+  <li *ngFor="let armadura of armaduras">
+    {{armadura}} <b *ngSwitchCase="1"></b>
+  </li>
+</ul>
+
+<h2>Uso de *ngSwitch con *ngSwitch</h2>
+<ul [ngSwitch]="superhero">
+  <li *ngSwitchCase="'Groot'">Groot</li>
+  <li *ngSwitchCase="'Ironman'">Ironman</li>
+  <li *ngSwitchCase="'Hulk'">Hulk</li>
+  <li *ngSwitchCase="'Thor'">Thor</li>
+  <li *ngSwitchCase="'Spiderman'">Spiderman</li>
+  <li *ngSwitchDefault>Batman</li>
+</ul>
